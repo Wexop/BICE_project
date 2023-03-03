@@ -1,8 +1,7 @@
-using System;
-
-namespace BiceDTO
+﻿namespace BICE.DAL
 {
     public class Class1
     {
+
     }
 }

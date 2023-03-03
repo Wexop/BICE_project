@@ -1,8 +1,7 @@
-using System;
-
-namespace BiceDTO
+﻿namespace BICE.SRV
 {
     public class Class1
     {
+
     }
 }
