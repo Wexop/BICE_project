@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DTO
 {
-    internal class Materiel_DTO
+    public class Materiel_DTO
     {
         public string CodeBarre { get; set; }
         public string Nom { get; set; }

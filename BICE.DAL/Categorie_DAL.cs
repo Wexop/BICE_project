@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    internal class Categorie_DAL
+    public class Categorie_DAL
     {
         public int Id_categorie { get; set; }
         public string Nom { get; set; }

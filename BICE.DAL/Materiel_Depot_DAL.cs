@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BICE.DTO
+namespace BICE.DAL
 {
-    public class Categorie_DTO
+    internal class Materiel_Depot_DAL
     {
-        public int Id_categorie { get; set; }
-        public string Nom { get; set; }
     }
 }
