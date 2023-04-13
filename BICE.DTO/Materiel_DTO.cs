@@ -11,8 +11,8 @@ namespace BICE.DTO
         public string CodeBarre { get; set; }
         public string Nom { get; set; }
         public int Categorie_ID { get; set; }
-        public int? Nn_utilisation { get; set; }
-        public int? Nn_utilisation_max { get; set; }
+        public int? Nb_utilisation { get; set; }
+        public int? Nb_utilisation_max { get; set; }
         public DateTime? Date_peremption { get; set; }
         public DateTime? Date_controle { get; set; }
         public DateTime? Date_prochain_controle { get; set; }
