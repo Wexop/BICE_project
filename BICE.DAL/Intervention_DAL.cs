@@ -8,5 +8,9 @@ namespace BICE.DAL
 {
     internal class Intervention_DAL
     {
+        public int Id_intervention { get; set; }
+        public dateTime Date_intervention { get; set; }
+        public Intervention_DAL(int id_intervention, dateTime date_intervention)
+            => (Id_intervention,  Date_intervention) = (id_intervention, date_intervention);
     }
 }
