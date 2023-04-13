@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NMwCtsdWWqC6BhIdJdWDbxaEcr00kgN1AW/I+BAhtpcmqw2et1hh0Miy5sXiqLjjCjPRgEfSD7IsAEhKGqf77A==",
+  "dgSpecHash": "HwTw09d+6zN/7bOpldKJRjwr1Nj/2RsKdevfDadpbA5N5sI6iQaSZThf04q8fU4z5uYFLnIZcBckwJxSeMwAFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\BiceDTO.csproj",
+  "projectFilePath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

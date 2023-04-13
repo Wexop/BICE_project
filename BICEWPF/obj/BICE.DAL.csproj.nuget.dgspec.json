@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\BiceDTO.csproj": {}
+    "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\BiceDTO.csproj": {
+    "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\BiceDTO.csproj",
+        "projectUniqueName": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj",
         "projectName": "BiceDTO",
-        "projectPath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\BiceDTO.csproj",
+        "projectPath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj",
         "packagesPath": "C:\\Users\\Matthieu\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICEWPF\\obj\\",
         "projectStyle": "PackageReference",
@@ -53,9 +53,6 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WPF": {
-              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
