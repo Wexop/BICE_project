@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    internal class Materiel_DAL
+    public class Materiel_DAL
     {
         public string CodeBarre { get; set; }
         public string Nom { get; set; }
