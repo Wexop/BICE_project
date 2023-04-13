@@ -44,6 +44,7 @@ namespace Geometrie.DAL
         public abstract IEnumerable<Type_DAL> GetAll();
 
         public abstract Type_DAL GetById(int id);
+        public abstract Type_DAL GetById(string id);
 
         public abstract Type_DAL Insert(Type_DAL p);
 
