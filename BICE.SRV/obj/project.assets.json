@@ -345,6 +345,16 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
+      "BICE.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BICE.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BICE.BLL.dll": {}
+        }
+      },
       "BICE.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1006,6 +1016,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BICE.BLL/1.0.0": {
+      "type": "project",
+      "path": "../BICE.BLL/BICE.BLL.csproj",
+      "msbuildProject": "../BICE.BLL/BICE.BLL.csproj"
+    },
     "BICE.DAL/1.0.0": {
       "type": "project",
       "path": "../BICE.DAL/BICE.DAL.csproj",
@@ -1019,6 +1034,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BICE.BLL >= 1.0.0",
       "BICE.DAL >= 1.0.0",
       "BICE.DTO >= 1.0.0"
     ]
@@ -1050,6 +1066,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.BLL\\BICE.BLL.csproj": {
+              "projectPath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.BLL\\BICE.BLL.csproj"
+            },
             "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj": {
               "projectPath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DAL\\BICE.DAL.csproj"
             },

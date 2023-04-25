@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Geometrie.DAL;
+using System.Drawing;
+using BICE.BLL;
 
 namespace BICE.SRV
 {
-    internal class Materiel_SRV<T> : IMateriel_SRV<T>
+    public class Materiel_SRV<T> : IMateriel_SRV<T>
         where T : Materiel_DTO
     {
         // champs
@@ -23,6 +25,27 @@ namespace BICE.SRV
         public Materiel_SRV() : this(new Materiel_Depot_DAL()) { }
 
         // methodes privées
+
+        private Materiel GetMateriel_BLLByDTO(Materiel_DTO materiel)
+        {
+            Materiel_DAL materiel_DAL = GetMateriel_DALByMateriel_DTO(materiel);
+
+            if (materiel_DAL == null)
+                throw new Exception("Pas de forme avec cet id");
+
+            Materiel materiel_BLL = new Materiel(materiel_DAL.CodeBarre, materiel_DAL.Nom, materiel_DAL.Categorie_ID, materiel_DAL.Nb_utilisation, materiel_DAL.Nb_utilisation_max, materiel_DAL.Date_peremption, materiel_DAL.Date_controle, materiel_DAL.Date_prochain_controle, materiel_DAL.Stock);
+
+            return materiel_BLL;
+        }
+
+        private Materiel_DAL GetMateriel_DALByMateriel_DTO(Materiel_DTO materiel)
+        {
+            if (materiel.CodeBarre == null)
+                throw new Exception("L'id de la forme est null");
+
+            var materiel_DAL = depot.GetById(materiel.CodeBarre);
+            return materiel_DAL;
+        }
 
         public IEnumerable<T> GetAll()
         {
