@@ -11,8 +11,7 @@ using BICE.BLL;
 
 namespace BICE.SRV
 {
-    public class Materiel_SRV<T> : IMateriel_SRV<T>
-        where T : Materiel_DTO
+    public class Materiel_SRV : IMateriel_SRV<Materiel_DTO>
     {
         // champs
 
@@ -47,27 +46,41 @@ namespace BICE.SRV
             return materiel_DAL;
         }
 
-        public IEnumerable<T> GetAll()
+        Materiel_DTO IMateriel_SRV<Materiel_DTO>.GetById(string id)
+        {
+            var materiel_DAL = depot.GetById(id);
+            if (materiel_DAL == null) throw new Exception("Pas de materiel trouvé avec le code barre" + id);
+            var materiel_DTO = new Materiel_DTO()
+            {
+                CodeBarre = materiel_DAL.CodeBarre,
+                Categorie_ID = materiel_DAL.Categorie_ID,
+                Nb_utilisation = materiel_DAL.Nb_utilisation,
+                Nb_utilisation_max = materiel_DAL.Nb_utilisation_max,
+                Date_controle = materiel_DAL.Date_controle,
+                Date_peremption = materiel_DAL.Date_peremption,
+                Date_prochain_controle = materiel_DAL.Date_prochain_controle,
+                Stock = materiel_DAL.Stock
+            };
+
+            return materiel_DTO;
+        }
+
+        IEnumerable<Materiel_DTO> IMateriel_SRV<Materiel_DTO>.GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public T GetById(string id)
+        public Materiel_DTO Ajouter(Materiel_DTO m)
         {
             throw new NotImplementedException();
         }
 
-        public T Modifier(T m)
+        public Materiel_DTO Modifier(Materiel_DTO m)
         {
             throw new NotImplementedException();
         }
 
         public void Supprimer(Materiel_DTO m)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T Ajouter(T m)
         {
             throw new NotImplementedException();
         }
