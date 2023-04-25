@@ -1,6 +1,7 @@
 ﻿using Geometrie.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -70,17 +71,18 @@ namespace BICE.DAL
 
             Materiel_DAL m = null;
 
-            if (reader.Read()) //j'ai trouvé une ligne
-            {
 
+            while (reader.Read()) //j'ai trouvé une ligne
+            {
+                                 
                 m = new Materiel_DAL(id, //Id
-                                    reader.GetString(1), // nom
+                                    reader.GetTextReader(1).ReadToEnd(), // nom
                                     reader.GetInt32(2), // categorieID
                                     reader.GetSqlInt32(3).IsNull ? null : reader.GetInt32(3),  // nb_utilisation
                                     reader.GetSqlInt32(4).IsNull ? null : reader.GetInt32(4),  // nb_utilisation MAX
-                                    reader.GetSqlDateTime(5).IsNull ? null : reader.GetDateTime(5), // date peremption
-                                    reader.GetSqlDateTime(6).IsNull ? null : reader.GetDateTime(6), // date controle
-                                    reader.GetSqlDateTime(7).IsNull ? null : reader.GetDateTime(7), // date prochain controle
+                                    null,// reader.GetSqlDateTime(5).IsNull ? null : reader.GetDateTime(5), // date peremption
+                                    null,// reader.GetSqlDateTime(6).IsNull ? null : reader.GetDateTime(6), // date controle
+                                    null,// reader.GetSqlDateTime(7).IsNull ? null : reader.GetDateTime(7), // date prochain controle
                                     reader.GetBoolean(8) // stock
                 );
             }
