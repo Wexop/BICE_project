@@ -12,6 +12,7 @@ namespace Geometrie.DAL
         public Type_DAL Update(Type_DAL p);
         public void Delete(Type_DAL p);
         public Type_DAL GetById(int id);
+        public Type_DAL GetById(string id);
         public IEnumerable<Type_DAL> GetAll();
     }
 }

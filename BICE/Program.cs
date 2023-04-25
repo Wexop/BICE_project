@@ -1,6 +1,11 @@
+using BICE.DTO;
+using BICE.SRV;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSingleton(typeof(IMateriel_SRV<Materiel_DTO>), new Materiel_SRV<Materiel_DTO>());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

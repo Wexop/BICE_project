@@ -1,0 +1,12 @@
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\bin\Debug\net7.0\BICE.DAL.deps.json
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\bin\Debug\net7.0\BICE.DAL.dll
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\bin\Debug\net7.0\BICE.DAL.pdb
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.csproj.AssemblyReference.cache
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.AssemblyInfoInputs.cache
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.AssemblyInfo.cs
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.dll
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\refint\BICE.DAL.dll
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\BICE.DAL.pdb
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.DAL\obj\Debug\net7.0\ref\BICE.DAL.dll
