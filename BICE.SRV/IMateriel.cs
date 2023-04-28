@@ -8,7 +8,7 @@ namespace BICE.SRV
         Type_DTO GetById(string id);
         IEnumerable<Type_DTO> GetAll();
         void Ajouter(Type_DTO m);
-        Type_DTO Modifier(Type_DTO m);
+        void Modifier(Type_DTO m);
         void Supprimer(string m);
     }
 }

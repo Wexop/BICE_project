@@ -38,6 +38,13 @@ namespace BiceAPI.Controllers
         }
 
         [HttpPost]
+        [Route("/Modifier")]
+        public void Modifier(Materiel_DTO m)
+        {
+            service.Modifier(m);
+        }
+
+        [HttpPost]
         [Route("/Supprimer")]
         public void Supprimer(string id)
         {

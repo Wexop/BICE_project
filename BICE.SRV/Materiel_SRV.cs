@@ -101,9 +101,11 @@ namespace BICE.SRV
             depot.Insert(materiel_DAL);
         }
 
-        public Materiel_DTO Modifier(Materiel_DTO m)
+        public void Modifier(Materiel_DTO m)
         {
-            throw new NotImplementedException();
+            var materiel_DAL = GetMateriel_DALByMateriel_DTO(m);
+
+            depot.Update(materiel_DAL);
         }
 
         public void Supprimer(string id)
