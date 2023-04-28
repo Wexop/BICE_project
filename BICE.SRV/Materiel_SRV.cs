@@ -53,6 +53,7 @@ namespace BICE.SRV
             var materiel_DTO = new Materiel_DTO()
             {
                 CodeBarre = materiel_DAL.CodeBarre,
+                Nom = materiel_DAL.Nom,
                 Categorie_ID = materiel_DAL.Categorie_ID,
                 Nb_utilisation = materiel_DAL.Nb_utilisation,
                 Nb_utilisation_max = materiel_DAL.Nb_utilisation_max,
@@ -76,6 +77,7 @@ namespace BICE.SRV
                 var materiel_DTO = new Materiel_DTO()
                 {
                     CodeBarre = materiel_DAL.CodeBarre,
+                    Nom = materiel_DAL.Nom,
                     Categorie_ID = materiel_DAL.Categorie_ID,
                     Nb_utilisation = materiel_DAL.Nb_utilisation,
                     Nb_utilisation_max = materiel_DAL.Nb_utilisation_max,
