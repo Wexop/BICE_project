@@ -39,7 +39,7 @@ namespace Geometrie.DAL
         }
 
 
-        public abstract void Delete(Type_DAL p);
+        public abstract void Delete(string id);
 
         public abstract IEnumerable<Type_DAL> GetAll();
 
@@ -49,5 +49,7 @@ namespace Geometrie.DAL
         public abstract Type_DAL Insert(Type_DAL p);
 
         public abstract Type_DAL Update(Type_DAL p);
+
+        public abstract void Delete(int id);
     }
 }

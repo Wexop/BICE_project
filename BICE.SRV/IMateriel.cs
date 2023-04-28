@@ -9,7 +9,6 @@ namespace BICE.SRV
         IEnumerable<Type_DTO> GetAll();
         Type_DTO Ajouter(Type_DTO m);
         Type_DTO Modifier(Type_DTO m);
-        void Supprimer(Materiel_DTO m);
-
+        void Supprimer(string m);
     }
 }

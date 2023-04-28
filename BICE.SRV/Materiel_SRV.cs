@@ -104,9 +104,9 @@ namespace BICE.SRV
             throw new NotImplementedException();
         }
 
-        public void Supprimer(Materiel_DTO m)
+        public void Supprimer(string id)
         {
-            throw new NotImplementedException();
+            depot.Delete(id);
         }
     }
 }

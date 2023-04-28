@@ -10,17 +10,22 @@ namespace BICE.DAL
 {
     public class Vehicule_Depot_DAL : Depot_DAL<Vehicule_DAL>
     {
-        public override void Delete(Vehicule_DAL f)
+        public override void Delete(string id)
         {
             InitialiserLaConnexionEtLaCommande();
 
             Commande.CommandText = @"DELETE FROM [dbo].[Vehicules]
                                      WHERE immatriculation=@id";
 
-            Commande.Parameters.Add(new SqlParameter("@id", f.Immatriculation));
+            Commande.Parameters.Add(new SqlParameter("@id", id));
             Commande.ExecuteNonQuery();
 
             FermerEtDisposerLaConnexionEtLaCommande();
+        }
+
+        public override void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public override IEnumerable<Vehicule_DAL> GetAll()

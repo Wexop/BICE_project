@@ -31,10 +31,18 @@ namespace BiceAPI.Controllers
         }
 
         [HttpPost]
+        [Route("/Ajouter")]
         public Materiel_DTO Ajouter(Materiel_DTO m)
         {
             return service.Ajouter(m);
         }
-    
+
+        [HttpPost]
+        [Route("/Supprimer")]
+        public void Supprimer(string id)
+        {
+            service.Supprimer(id);
+        }
+
     }
 }

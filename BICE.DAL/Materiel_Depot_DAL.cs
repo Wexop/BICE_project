@@ -11,17 +11,22 @@ namespace BICE.DAL
 {
     public class Materiel_Depot_DAL : Depot_DAL<Materiel_DAL>
     {
-        public override void Delete(Materiel_DAL p)
+        public override void Delete(string id)
         {
             InitialiserLaConnexionEtLaCommande();
 
             Commande.CommandText = @"DELETE FROM [dbo].[Materiels]
                                      WHERE code_barre=@id";
 
-            Commande.Parameters.Add(new SqlParameter("@id", p.CodeBarre));
+            Commande.Parameters.Add(new SqlParameter("@id", id));
             Commande.ExecuteNonQuery();
 
             FermerEtDisposerLaConnexionEtLaCommande();
+        }
+
+        public override void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public override IEnumerable<Materiel_DAL> GetAll()
