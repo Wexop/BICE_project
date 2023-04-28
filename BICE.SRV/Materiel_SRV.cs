@@ -42,7 +42,7 @@ namespace BICE.SRV
             if (materiel.CodeBarre == null)
                 throw new Exception("L'id de la forme est null");
 
-            var materiel_DAL = depot.GetById(materiel.CodeBarre);
+            var materiel_DAL = new Materiel_DAL(materiel.CodeBarre, materiel.Nom, materiel.Categorie_ID, materiel.Nb_utilisation, materiel.Nb_utilisation_max, materiel.Date_peremption, materiel.Date_controle, materiel.Date_prochain_controle, materiel.Stock);
             return materiel_DAL;
         }
 
@@ -94,9 +94,11 @@ namespace BICE.SRV
 
         }
 
-        public Materiel_DTO Ajouter(Materiel_DTO m)
+        public void Ajouter(Materiel_DTO m)
         {
-            throw new NotImplementedException();
+            var materiel_DAL = GetMateriel_DALByMateriel_DTO(m);
+
+            depot.Insert(materiel_DAL);
         }
 
         public Materiel_DTO Modifier(Materiel_DTO m)

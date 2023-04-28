@@ -32,9 +32,9 @@ namespace BiceAPI.Controllers
 
         [HttpPost]
         [Route("/Ajouter")]
-        public Materiel_DTO Ajouter(Materiel_DTO m)
+        public void Ajouter(Materiel_DTO m)
         {
-            return service.Ajouter(m);
+            service.Ajouter(m);
         }
 
         [HttpPost]
