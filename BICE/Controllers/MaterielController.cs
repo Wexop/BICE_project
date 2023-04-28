@@ -17,9 +17,17 @@ namespace BiceAPI.Controllers
         }
 
         [HttpGet]
+        [Route("/GetById")]
         public Materiel_DTO GetById(string id)
         {
             return service.GetById(id);
+        }
+
+        [HttpGet]
+        [Route("/GetAll")]
+        public IEnumerable<Materiel_DTO> GetAll()
+        {
+            return service.GetAll();
         }
 
         [HttpPost]

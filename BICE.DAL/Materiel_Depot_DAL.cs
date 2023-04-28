@@ -45,9 +45,9 @@ namespace BICE.DAL
                                     reader.GetInt32(2), // categorieID
                                     reader.GetSqlInt32(3).IsNull ? null : reader.GetInt32(3),  // nb_utilisation
                                     reader.GetSqlInt32(4).IsNull ? null : reader.GetInt32(4),  // nb_utilisation MAX
-                                    reader.GetSqlDateTime(5).IsNull ? null : reader.GetDateTime(5), // date peremption
-                                    reader.GetSqlDateTime(6).IsNull ? null : reader.GetDateTime(6), // date controle
-                                    reader.GetSqlDateTime(7).IsNull ? null : reader.GetDateTime(7), // date prochain controle
+                                    reader.IsDBNull(5) ? null : reader.GetDateTime(5), // date peremption
+                                    reader.IsDBNull(6) ? null : reader.GetDateTime(6), // date controle
+                                    reader.IsDBNull(7) ? null : reader.GetDateTime(7), // date prochain controle
                                     reader.GetBoolean(8) // stock
                 ));
             }

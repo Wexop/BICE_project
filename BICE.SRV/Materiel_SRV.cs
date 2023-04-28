@@ -49,7 +49,7 @@ namespace BICE.SRV
         Materiel_DTO IMateriel_SRV<Materiel_DTO>.GetById(string id)
         {
             var materiel_DAL = depot.GetById(id);
-            if (materiel_DAL == null) throw new Exception("Pas de materiel trouvé avec le code barre" + id);
+            if (materiel_DAL == null) throw new Exception("Pas de materiel trouvé avec le code barre : " + id);
             var materiel_DTO = new Materiel_DTO()
             {
                 CodeBarre = materiel_DAL.CodeBarre,
@@ -67,7 +67,29 @@ namespace BICE.SRV
 
         IEnumerable<Materiel_DTO> IMateriel_SRV<Materiel_DTO>.GetAll()
         {
-            throw new NotImplementedException();
+            var materiel_DAL_List = depot.GetAll();
+
+            var materiel_DTO_List = new List<Materiel_DTO> { };
+
+            foreach (Materiel_DAL materiel_DAL in materiel_DAL_List)
+            {
+                var materiel_DTO = new Materiel_DTO()
+                {
+                    CodeBarre = materiel_DAL.CodeBarre,
+                    Categorie_ID = materiel_DAL.Categorie_ID,
+                    Nb_utilisation = materiel_DAL.Nb_utilisation,
+                    Nb_utilisation_max = materiel_DAL.Nb_utilisation_max,
+                    Date_controle = materiel_DAL.Date_controle,
+                    Date_peremption = materiel_DAL.Date_peremption,
+                    Date_prochain_controle = materiel_DAL.Date_prochain_controle,
+                    Stock = materiel_DAL.Stock
+                };
+
+                materiel_DTO_List.Add(materiel_DTO);
+            };
+
+            return materiel_DTO_List;
+
         }
 
         public Materiel_DTO Ajouter(Materiel_DTO m)
