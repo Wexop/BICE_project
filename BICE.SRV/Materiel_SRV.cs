@@ -108,6 +108,7 @@ namespace BICE.SRV
 
         public void Supprimer(string id)
         {
+            if (depot.GetById(id) == null) throw new Exception("Aucun materiel trouvé avec le code barre : " + id);
             depot.Delete(id);
         }
     }
