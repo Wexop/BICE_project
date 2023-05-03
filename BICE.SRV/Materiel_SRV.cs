@@ -113,5 +113,15 @@ namespace BICE.SRV
             if (depot.GetById(id) == null) throw new Exception("Aucun materiel trouvé avec le code barre : " + id);
             depot.Delete(id);
         }
+
+        public Materiel_DTO GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Supprimer(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
