@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton(typeof(IBase_SRV<Materiel_DTO>), new Materiel_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<Vehicule_DTO>), new Vehicule_SRV());
+builder.Services.AddSingleton(typeof(IBase_SRV<Intervention_DTO>), new Intervention_SRV());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
