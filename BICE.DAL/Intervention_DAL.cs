@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    internal class Intervention_DAL
+    public class Intervention_DAL
     {
         public int Id_intervention { get; set; }
         public DateTime Date_intervention { get; set; }
