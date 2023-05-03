@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BICE.SRV
 {
-    internal class Vehicule_SRV : IBase_SRV<Vehicule_DTO>
+    public class Vehicule_SRV : IBase_SRV<Vehicule_DTO>
     {
 
         // champs
@@ -94,7 +94,7 @@ namespace BICE.SRV
         public void Modifier(Vehicule_DTO o)
         {
 
-            var vehiculeDAL = GetVehicule_DALByMateriel_DTO(v);
+            var vehiculeDAL = GetVehicule_DALByMateriel_DTO(o);
 
             depot.Update(vehiculeDAL);
         }
