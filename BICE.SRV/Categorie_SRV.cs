@@ -84,7 +84,15 @@ namespace BICE.SRV
 
         public Categorie_DTO GetById(int id)
         {
-            throw new NotImplementedException();
+            var categorie_DAL = depot.GetById(id);
+            if (categorie_DAL == null) throw new Exception("Pas de catégorie trouvé avec le code barre : " + id);
+            var categorie_DTO = new Categorie_DTO()
+            {
+                Id_categorie = categorie_DAL.Id_categorie,
+                Nom = categorie_DAL.Nom,
+            };
+
+            return categorie_DTO;
         }
 
         public void Modifier(Categorie_DTO o)

@@ -91,7 +91,7 @@ namespace BICE.DAL
             InitialiserLaConnexionEtLaCommande();
             Commande.CommandText = @"INSERT INTO [dbo].[Categories]
                                            (
-                                           ,[nom])
+                                           [nom])
                                          VALUES
                                            (@nom); select scope_identity()";
 
