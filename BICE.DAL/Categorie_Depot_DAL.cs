@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    public class Intervention_Depot_DAL : Depot_DAL<Intervention_DAL>
+    public class Categorie_Depot_DAL : Depot_DAL<Categorie_DAL>
     {
         public override void Delete(int id)
         {
             InitialiserLaConnexionEtLaCommande();
 
-            Commande.CommandText = @"DELETE FROM [dbo].[Interventions]
-                                     WHERE id_intervention=@id";
+            Commande.CommandText = @"DELETE FROM [dbo].[Categories]
+                                     WHERE categorie_id=@id";
 
             Commande.Parameters.Add(new SqlParameter("@id", id));
             Commande.ExecuteNonQuery();
@@ -28,24 +28,24 @@ namespace BICE.DAL
             throw new NotImplementedException();
         }
 
-        public override IEnumerable<Intervention_DAL> GetAll()
+        public override IEnumerable<Categorie_DAL> GetAll()
         {
             InitialiserLaConnexionEtLaCommande();
 
             Commande.CommandText = @"SELECT *
-                                    FROM [dbo].[Interventions]";
+                                    FROM [dbo].[Categories]";
 
 
             var reader = Commande.ExecuteReader();
 
-            var liste = new List<Intervention_DAL>();
+            var liste = new List<Categorie_DAL>();
 
             while (reader.Read()) //j'ai trouvé une ligne
             {
                 var id = reader.GetInt32(0);
 
-                liste.Add(new Intervention_DAL(id, //Id
-                                    reader.GetDateTime(1) // date
+                liste.Add(new Categorie_DAL(id, //Id
+                                    reader.GetString(1) // nom
                 ));
             }
 
@@ -54,48 +54,48 @@ namespace BICE.DAL
             return liste;
         }
 
-        public override Intervention_DAL GetById(int id)
+        public override Categorie_DAL GetById(int id)
         {
             InitialiserLaConnexionEtLaCommande();
 
             Commande.CommandText = @"SELECT *
-                                    FROM [dbo].[Interventions]
-                                     WHERE id_intervention=@id";
+                                    FROM [dbo].[Categories]
+                                     WHERE categorie_id=@id";
 
             Commande.Parameters.Add(new SqlParameter("@id", id));
 
             var reader = Commande.ExecuteReader();
 
-            Intervention_DAL i = null;
+            Categorie_DAL c = null;
 
             if (reader.Read()) //j'ai trouvé une ligne
             {
 
-                i = new Intervention_DAL(id, //Id
-                                    reader.GetDateTime(1) // date
+                c = new Categorie_DAL(id, //Id
+                                    reader.GetString(1) // nom
                 );
             }
 
             FermerEtDisposerLaConnexionEtLaCommande();
 
-            return i;
+            return c;
         }
 
-        public override Intervention_DAL GetById(string id)
+        public override Categorie_DAL GetById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public override Intervention_DAL Insert(Intervention_DAL p)
+        public override Categorie_DAL Insert(Categorie_DAL p)
         {
             InitialiserLaConnexionEtLaCommande();
-            Commande.CommandText = @"INSERT INTO [dbo].[Interventions]
+            Commande.CommandText = @"INSERT INTO [dbo].[Categories]
                                            (
-                                           [date])
+                                           ,[nom])
                                          VALUES
-                                           (@date); select scope_identity()";
+                                           (@nom); select scope_identity()";
 
-            Commande.Parameters.Add(new SqlParameter("@date", p.Date_intervention));
+            Commande.Parameters.Add(new SqlParameter("@nom", p.Nom));
 
             Commande.ExecuteScalar();
 
@@ -104,16 +104,15 @@ namespace BICE.DAL
             return p;
         }
 
-        public override Intervention_DAL Update(Intervention_DAL p)
+        public override Categorie_DAL Update(Categorie_DAL p)
         {
             InitialiserLaConnexionEtLaCommande();
-            Commande.CommandText = @"UPDATE [dbo].[Interventions]
+            Commande.CommandText = @"UPDATE [dbo].[Categories]
                                            set
-                                           [date]=@date
-                                     WHERE id_intervention=@id_intervention";
+                                           [nom]=@nom
+                                     WHERE categorie_id=@categorie_id";
 
-            Commande.Parameters.Add(new SqlParameter("@id_intervention", p.Id_intervention));
-            Commande.Parameters.Add(new SqlParameter("@date", p.Date_intervention));
+            Commande.Parameters.Add(new SqlParameter("@categorie_id", p.Id_categorie));
 
             Commande.ExecuteScalar();
 
