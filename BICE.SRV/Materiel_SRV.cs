@@ -11,7 +11,7 @@ using BICE.BLL;
 
 namespace BICE.SRV
 {
-    public class Materiel_SRV : IMateriel_SRV<Materiel_DTO>
+    public class Materiel_SRV : IBase_SRV<Materiel_DTO>
     {
         // champs
 
@@ -46,7 +46,7 @@ namespace BICE.SRV
             return materiel_DAL;
         }
 
-        Materiel_DTO IMateriel_SRV<Materiel_DTO>.GetById(string id)
+        Materiel_DTO IBase_SRV<Materiel_DTO>.GetById(string id)
         {
             var materiel_DAL = depot.GetById(id);
             if (materiel_DAL == null) throw new Exception("Pas de materiel trouvé avec le code barre : " + id);
@@ -66,7 +66,7 @@ namespace BICE.SRV
             return materiel_DTO;
         }
 
-        IEnumerable<Materiel_DTO> IMateriel_SRV<Materiel_DTO>.GetAll()
+        IEnumerable<Materiel_DTO> IBase_SRV<Materiel_DTO>.GetAll()
         {
             var materiel_DAL_List = depot.GetAll();
 

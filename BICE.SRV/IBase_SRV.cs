@@ -2,8 +2,7 @@
 
 namespace BICE.SRV
 {
-    public interface IMateriel_SRV<Type_DTO>
-                 where Type_DTO : Materiel_DTO
+    public interface IBase_SRV<Type_DTO>
     {
         Type_DTO GetById(string id);
         IEnumerable<Type_DTO> GetAll();

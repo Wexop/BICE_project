@@ -9,9 +9,9 @@ namespace BiceAPI.Controllers
     public class MaterielController : Controller
     {
         //private Triangle_SRV service = new Triangle_SRV();
-        private IMateriel_SRV<Materiel_DTO> service;
+        private IBase_SRV<Materiel_DTO> service;
 
-        public MaterielController(IMateriel_SRV<Materiel_DTO> service)
+        public MaterielController(IBase_SRV<Materiel_DTO> service)
         {
             this.service = service;
         }
