@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BICE.BLL
 {
-    internal class Intervention
+    public class Intervention
     {
-        public int Id_intervention { get; set; }
-        public DateTime Date_intervention { get; set; }
+        public int Id_intervention { get; private set; }
+        public DateTime Date_intervention { get; private set; }
 
         public Intervention(int id, DateTime dateIntervention) 
         { 

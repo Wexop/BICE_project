@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.BLL
 {
-    internal class Vehicule
+    public class Vehicule
     {
         public string Immatriculation { get; private set; }
         public string Nom { get; private set; }
