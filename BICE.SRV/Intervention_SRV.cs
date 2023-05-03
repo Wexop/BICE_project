@@ -77,7 +77,7 @@ namespace BICE.SRV
         public Intervention_DTO GetById(int id)
         {
             var intervention_DAL = depot.GetById(id);
-            if (intervention_DAL == null) throw new Exception("Pas d'intervention trouvé avec le code barre : " + id);
+            if (intervention_DAL == null) throw new Exception("Pas d'intervention trouvé avec l'id : " + id);
             var intervention_DTO = new Intervention_DTO()
             {
                 Id_intervention = intervention_DAL.Id_intervention,
@@ -106,7 +106,7 @@ namespace BICE.SRV
 
         public void Supprimer(int id)
         {
-            if (depot.GetById(id) == null) throw new Exception("Aucune intervention trouvé avec le code barre : " + id);
+            if (depot.GetById(id) == null) throw new Exception("Aucune intervention trouvé avec l'id : " + id);
             depot.Delete(id);
         }
     }

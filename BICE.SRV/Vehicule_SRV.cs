@@ -101,7 +101,7 @@ namespace BICE.SRV
 
         public void Supprimer(string id)
         {
-            if (depot.GetById(id) == null) throw new Exception("Aucun vehicule trouvé avec le code barre : " + id);
+            if (depot.GetById(id) == null) throw new Exception("Aucun vehicule trouvé avec l'id : " + id);
             depot.Delete(id);
         }
 
