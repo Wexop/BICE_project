@@ -32,7 +32,7 @@ namespace BICE.SRV
             if (vi_DAL == null)
                 throw new Exception("Pas de vehiculeIntervention avec cet id");
 
-            var vehiculeIntervention = new VehiculeIntervention(vi_DAL.IdIntervention, vi_DAL.IdVehiculeIntervention, vi_DAL.ImmatriculationVehicule)
+            var vehiculeIntervention = new VehiculeIntervention(vi_DAL.IdIntervention, vi_DAL.IdVehiculeIntervention, vi_DAL.ImmatriculationVehicule);
             return vehiculeIntervention;
         }
 

@@ -17,35 +17,35 @@ namespace BiceAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/GetById")]
+        [Route("/Materiel/GetById")]
         public Materiel_DTO GetById(string id)
         {
             return service.GetById(id);
         }
 
         [HttpGet]
-        [Route("/GetAll")]
+        [Route("/Materiel/GetAll")]
         public IEnumerable<Materiel_DTO> GetAll()
         {
             return service.GetAll();
         }
 
         [HttpPost]
-        [Route("/Ajouter")]
+        [Route("/Materiel/Ajouter")]
         public void Ajouter(Materiel_DTO m)
         {
             service.Ajouter(m);
         }
 
         [HttpPost]
-        [Route("/Modifier")]
+        [Route("/Materiel/Modifier")]
         public void Modifier(Materiel_DTO m)
         {
             service.Modifier(m);
         }
 
         [HttpPost]
-        [Route("/Supprimer")]
+        [Route("/Materiel/Supprimer")]
         public void Supprimer(string id)
         {
             service.Supprimer(id);
