@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BICE.SRV
 {
-    public class MaterielIntervention_SRV : IBase_SRV<MaterielIntervention_DTO>
+    public class MaterielIntervention_SRV : IMaterielIntervention_SRV<MaterielIntervention_DTO>
     {
 
         // champs
