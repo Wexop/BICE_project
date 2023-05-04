@@ -10,7 +10,7 @@ builder.Services.AddSingleton(typeof(IBase_SRV<Vehicule_DTO>), new Vehicule_SRV(
 builder.Services.AddSingleton(typeof(IBase_SRV<Intervention_DTO>), new Intervention_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<Categorie_DTO>), new Categorie_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<VehiculeIntervention_DTO>), new VehiculeIntervention_SRV());
-builder.Services.AddSingleton(typeof(IBase_SRV<MaterielIntervention_DTO>), new MaterielIntervention_SRV());
+builder.Services.AddSingleton(typeof(IMaterielIntervention_SRV<MaterielIntervention_DTO>), new MaterielIntervention_SRV());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
