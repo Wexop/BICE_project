@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    internal class MaterielIntervention_Depot_DAL : Depot_DAL<MaterielIntervention_DAL>
+    public class MaterielIntervention_Depot_DAL : Depot_DAL<MaterielIntervention_DAL>, IMaterielIntervention_Depot_DAL<MaterielIntervention_DAL>
     {
         public void Delete(int idVehiculeIntervention, string codeBarre )
         {
@@ -59,7 +59,7 @@ namespace BICE.DAL
             return liste;
         }
 
-        public override MaterielIntervention_DAL GetById(int idVehiculeIntervention, string codeBarre)
+        public MaterielIntervention_DAL GetById(int idVehiculeIntervention, string codeBarre)
         {
             InitialiserLaConnexionEtLaCommande();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DAL
 {
-    internal class VehiculeIntervention_DAL
+    public class VehiculeIntervention_DAL
     {
         public int IdVehiculeIntervention { get; set; }
         public int IdIntervention { get; set; }

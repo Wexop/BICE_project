@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BICE.DTO
 {
-    internal class VehiculeIntervention_DTO
+    public class VehiculeIntervention_DTO
     {
         public int IdVehiculeIntervention { get; set; }
         public int idIntervention { get; set; }
