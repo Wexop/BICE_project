@@ -92,6 +92,11 @@ namespace BICE.DAL
             throw new NotImplementedException();
         }
 
+        public override MaterielIntervention_DAL GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public override MaterielIntervention_DAL Insert(MaterielIntervention_DAL p)
         {
             InitialiserLaConnexionEtLaCommande();
