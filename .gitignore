@@ -3,3 +3,11 @@ BICE/.vs
 BICE/bin/Debug
 BICE.SRV/obj/Debug
 BICE.SRV/obj/Debug
+BICE/obj/Debug
+BICE.BLL/bin/Debug
+BICE.BLL/obj/Debug
+BICE.DAL/bin/Debug
+BICE.DAL/obj/Debug
+BICE.DTO/bin/Debug
+BICE.DTO/obj/Debug
+BICE.SRV/bin/Debug
