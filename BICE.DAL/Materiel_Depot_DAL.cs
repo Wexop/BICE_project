@@ -53,7 +53,8 @@ namespace BICE.DAL
                                     reader.IsDBNull(5) ? null : reader.GetDateTime(5), // date peremption
                                     reader.IsDBNull(6) ? null : reader.GetDateTime(6), // date controle
                                     reader.IsDBNull(7) ? null : reader.GetDateTime(7), // date prochain controle
-                                    reader.GetBoolean(8) // stock
+                                    reader.GetBoolean(8), // stock
+                                    reader.IsDBNull(9) ? null : reader.GetString(9) // vehicule_id
                 ));
             }
 
@@ -88,7 +89,8 @@ namespace BICE.DAL
                                     reader.IsDBNull(5) ? null : reader.GetDateTime(5), // date peremption
                                     reader.IsDBNull(6) ? null : reader.GetDateTime(6), // date controle
                                     reader.IsDBNull(7) ? null : reader.GetDateTime(7), // date prochain controle
-                                    reader.GetBoolean(8) // stock
+                                    reader.GetBoolean(8), // stock
+                                    reader.GetString(9) // vehicule_id
                 );
             }
 
@@ -114,7 +116,8 @@ namespace BICE.DAL
                                            ,[date_peremption]
                                            ,[date_controle]
                                            ,[date_prochain_controle]
-                                           ,[stock])
+                                           ,[stock]
+                                           ,[vehicule_id])
                                          VALUES
                                            (@code_barre
                                            ,@nom
@@ -124,7 +127,8 @@ namespace BICE.DAL
                                            ,@date_peremption
                                            ,@date_controle
                                            ,@date_prochain_controle
-                                           ,@stock); select scope_identity()";
+                                           ,@stock
+                                           ,@vehicule_id); select scope_identity()";
 
             Commande.Parameters.Add(new SqlParameter("@code_barre", m.CodeBarre));
             Commande.Parameters.Add(new SqlParameter("@nom", m.Nom));
@@ -135,6 +139,7 @@ namespace BICE.DAL
             Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@stock", m.Stock));
+            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID));
 
             Commande.ExecuteScalar();
 
@@ -155,6 +160,7 @@ namespace BICE.DAL
                                            ,[date_peremption]=@date_peremption
                                            ,[date_controle]=@date_controle
                                            ,[date_prochain_controle]=@date_prochain_controle
+                                           ,[vehicule_id]=@vehicule_id
                                            ,[stock]=@stock
                                      WHERE code_barre=@code_barre";
 
@@ -167,6 +173,7 @@ namespace BICE.DAL
             Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@stock", m.Stock));
+            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID));
 
             Commande.ExecuteScalar();
 

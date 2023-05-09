@@ -32,7 +32,7 @@ namespace BICE.SRV
             if (materiel_DAL == null)
                 throw new Exception("Pas de materiel avec cet id");
 
-            Materiel materiel_BLL = new Materiel(materiel_DAL.CodeBarre, materiel_DAL.Nom, materiel_DAL.Categorie_ID, materiel_DAL.Nb_utilisation, materiel_DAL.Nb_utilisation_max, materiel_DAL.Date_peremption, materiel_DAL.Date_controle, materiel_DAL.Date_prochain_controle, materiel_DAL.Stock);
+            Materiel materiel_BLL = new Materiel(materiel_DAL.CodeBarre, materiel_DAL.Nom, materiel_DAL.Categorie_ID, materiel_DAL.Nb_utilisation, materiel_DAL.Nb_utilisation_max, materiel_DAL.Date_peremption, materiel_DAL.Date_controle, materiel_DAL.Date_prochain_controle, materiel_DAL.Stock, materiel_DAL.Vehicule_ID);
 
             return materiel_BLL;
         }
@@ -42,7 +42,7 @@ namespace BICE.SRV
             if (materiel.CodeBarre == null)
                 throw new Exception("L'id du materiel est null");
 
-            var materiel_DAL = new Materiel_DAL(materiel.CodeBarre, materiel.Nom, materiel.Categorie_ID, materiel.Nb_utilisation, materiel.Nb_utilisation_max, materiel.Date_peremption, materiel.Date_controle, materiel.Date_prochain_controle, materiel.Stock);
+            var materiel_DAL = new Materiel_DAL(materiel.CodeBarre, materiel.Nom, materiel.Categorie_ID, materiel.Nb_utilisation, materiel.Nb_utilisation_max, materiel.Date_peremption, materiel.Date_controle, materiel.Date_prochain_controle, materiel.Stock, materiel.Vehicule_ID);
             return materiel_DAL;
         }
 
@@ -60,7 +60,8 @@ namespace BICE.SRV
                 Date_controle = materiel_DAL.Date_controle,
                 Date_peremption = materiel_DAL.Date_peremption,
                 Date_prochain_controle = materiel_DAL.Date_prochain_controle,
-                Stock = materiel_DAL.Stock
+                Stock = materiel_DAL.Stock,
+                Vehicule_ID = materiel_DAL.Vehicule_ID
             };
 
             return materiel_DTO;
@@ -84,7 +85,8 @@ namespace BICE.SRV
                     Date_controle = materiel_DAL.Date_controle,
                     Date_peremption = materiel_DAL.Date_peremption,
                     Date_prochain_controle = materiel_DAL.Date_prochain_controle,
-                    Stock = materiel_DAL.Stock
+                    Stock = materiel_DAL.Stock,
+                    Vehicule_ID = materiel_DAL.Vehicule_ID
                 };
 
                 materiel_DTO_List.Add(materiel_DTO);

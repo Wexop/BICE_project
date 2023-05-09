@@ -17,5 +17,6 @@ namespace BICE.DTO
         public DateTime? Date_controle { get; set; }
         public DateTime? Date_prochain_controle { get; set; }
         public bool Stock { get; set; }
+        public string? Vehicule_ID { get; set; }
     }
 }

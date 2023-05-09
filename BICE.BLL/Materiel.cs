@@ -12,8 +12,10 @@
         public DateTime? Date_prochain_controle { get; private set; }
         public bool Stock { get; private set; }
 
+        public string? Vehicule_ID { get; private set; }
+
         // constructeur
-        public Materiel(string codeBarre, string nom, int categorieId, int? nbUtilisation, int? nbUtilisationMax, DateTime? datePeremption, DateTime? dateControle, DateTime? dateProchainControle, bool stock)
+        public Materiel(string codeBarre, string nom, int categorieId, int? nbUtilisation, int? nbUtilisationMax, DateTime? datePeremption, DateTime? dateControle, DateTime? dateProchainControle, bool stock, string? vehicule_id)
         {
             CodeBarre = codeBarre;
             Nom = nom;
@@ -24,6 +26,7 @@
             Date_controle = dateControle;
             Date_prochain_controle = dateProchainControle;
             Stock = stock;
+            Vehicule_ID= vehicule_id;
         }
 
 

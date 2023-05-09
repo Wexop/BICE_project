@@ -18,6 +18,8 @@ namespace BICE.DAL
         public DateTime? Date_prochain_controle { get; set; }
         public bool Stock { get; set; }
 
+        public string? Vehicule_ID { get; private set; }
+
         public Materiel_DAL(string codeBarre, string nom, int categorie_ID, bool stock)
             => (CodeBarre, Nom, Categorie_ID, Stock) = (codeBarre, nom, categorie_ID, stock);
 
@@ -30,8 +32,8 @@ namespace BICE.DAL
         public Materiel_DAL(string codeBarre, string nom, int categorie_ID, DateTime dateControle, DateTime dateProchainControle, bool stock)
          : this(codeBarre, nom, categorie_ID, stock) => (Date_controle, Date_prochain_controle) = (dateControle, dateProchainControle);
 
-        public Materiel_DAL(string codeBarre, string nom, int categorie_ID, int? nbUtilisation, int? nbUtilisationMax, DateTime? datePeremption, DateTime? dateControle, DateTime? dateProchainControle, bool stock)
-        : this(codeBarre, nom, categorie_ID, stock) => (Nb_utilisation, Nb_utilisation_max, Date_peremption, Date_controle, Date_prochain_controle) = (nbUtilisation, nbUtilisationMax, datePeremption, dateControle, dateProchainControle);
+        public Materiel_DAL(string codeBarre, string nom, int categorie_ID, int? nbUtilisation, int? nbUtilisationMax, DateTime? datePeremption, DateTime? dateControle, DateTime? dateProchainControle, bool stock, string? vehicule_id)
+        : this(codeBarre, nom, categorie_ID, stock) => (Nb_utilisation, Nb_utilisation_max, Date_peremption, Date_controle, Date_prochain_controle, Vehicule_ID) = (nbUtilisation, nbUtilisationMax, datePeremption, dateControle, dateProchainControle, vehicule_id);
 
     }
 }
