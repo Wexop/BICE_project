@@ -99,8 +99,9 @@ namespace BICE.WPF
                                 Date_controle = materiel.Date_controle,
                                 Date_peremption = materiel.Date_peremption,
                                 Date_prochain_controle = materiel.Date_prochain_controle,
-                                Stock = false,
-                                Nom = materiel.Nom
+                                Stock = materiel.Stock,
+                                Nom = materiel.Nom,
+                                Vehicule_ID = immatriculation.Text
                             };
 
                             client.Modifier3(materielDTO);
