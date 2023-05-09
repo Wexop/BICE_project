@@ -11,7 +11,6 @@
         public DateTime? Date_controle { get; private set; }
         public DateTime? Date_prochain_controle { get; private set; }
         public bool Stock { get; private set; }
-
         public string? Vehicule_ID { get; private set; }
 
         // constructeur
@@ -29,6 +28,12 @@
             Vehicule_ID= vehicule_id;
         }
 
+        public void RetourIntervention()
+        {
+            Nb_utilisation += 1;
+
+            if (Nb_utilisation >= Nb_utilisation_max || DateTime.Now >= Date_peremption) Stock = false;
+        }
 
     }
 }

@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton(typeof(IBase_SRV<Materiel_DTO>), new Materiel_SRV());
+builder.Services.AddSingleton(typeof(IMateriel_SRV<Materiel_DTO>), new Materiel_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<Vehicule_DTO>), new Vehicule_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<Intervention_DTO>), new Intervention_SRV());
 builder.Services.AddSingleton(typeof(IBase_SRV<Categorie_DTO>), new Categorie_SRV());

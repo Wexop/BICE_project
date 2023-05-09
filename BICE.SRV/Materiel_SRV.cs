@@ -11,7 +11,7 @@ using BICE.BLL;
 
 namespace BICE.SRV
 {
-    public class Materiel_SRV : IBase_SRV<Materiel_DTO>
+    public class Materiel_SRV : IMateriel_SRV<Materiel_DTO>
     {
         // champs
 
@@ -35,6 +35,13 @@ namespace BICE.SRV
             Materiel materiel_BLL = new Materiel(materiel_DAL.CodeBarre, materiel_DAL.Nom, materiel_DAL.Categorie_ID, materiel_DAL.Nb_utilisation, materiel_DAL.Nb_utilisation_max, materiel_DAL.Date_peremption, materiel_DAL.Date_controle, materiel_DAL.Date_prochain_controle, materiel_DAL.Stock, materiel_DAL.Vehicule_ID);
 
             return materiel_BLL;
+        }
+
+        private Materiel_DAL GetMaterielDALByBLL(Materiel materiel)
+        {
+
+            return new Materiel_DAL(materiel.CodeBarre, materiel.Nom, materiel.Categorie_ID, materiel.Nb_utilisation, materiel.Nb_utilisation_max, materiel.Date_peremption, materiel.Date_controle, materiel.Date_prochain_controle, materiel.Stock, materiel.Vehicule_ID);
+
         }
 
         private Materiel_DAL GetMateriel_DALByMateriel_DTO(Materiel_DTO materiel)
@@ -101,6 +108,16 @@ namespace BICE.SRV
             var materiel_DAL = GetMateriel_DALByMateriel_DTO(m);
 
             depot.Insert(materiel_DAL);
+        }
+
+        public void ModifierRetourInterventionUtiliser(Materiel_DTO m)
+        {
+            var materielBLL = GetMateriel_BLLByDTO(m);
+            materielBLL.RetourIntervention();
+
+            var materielDAL = GetMaterielDALByBLL(materielBLL);
+
+            depot.Update(materielDAL);
         }
 
         public void Modifier(Materiel_DTO m)

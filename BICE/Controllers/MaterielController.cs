@@ -9,9 +9,9 @@ namespace BiceAPI.Controllers
     public class MaterielController : Controller
     {
         //private Triangle_SRV service = new Triangle_SRV();
-        private IBase_SRV<Materiel_DTO> service;
+        private IMateriel_SRV<Materiel_DTO> service;
 
-        public MaterielController(IBase_SRV<Materiel_DTO> service)
+        public MaterielController(IMateriel_SRV<Materiel_DTO> service)
         {
             this.service = service;
         }
@@ -35,6 +35,13 @@ namespace BiceAPI.Controllers
         public void Ajouter(Materiel_DTO m)
         {
             service.Ajouter(m);
+        }
+
+        [HttpPost]
+        [Route("/Materiel/ModifierUtiliser")]
+        public void AjouterUtiliser(Materiel_DTO m)
+        {
+            service.ModifierRetourInterventionUtiliser(m);
         }
 
         [HttpPost]
