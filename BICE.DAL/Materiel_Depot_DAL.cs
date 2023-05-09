@@ -90,7 +90,7 @@ namespace BICE.DAL
                                     reader.IsDBNull(6) ? null : reader.GetDateTime(6), // date controle
                                     reader.IsDBNull(7) ? null : reader.GetDateTime(7), // date prochain controle
                                     reader.GetBoolean(8), // stock
-                                    reader.GetString(9) // vehicule_id
+                                    reader.IsDBNull(9) ? null : reader.GetString(9) // vehicule_id
                 );
             }
 
@@ -139,7 +139,7 @@ namespace BICE.DAL
             Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@stock", m.Stock));
-            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID));
+            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID ?? (object)DBNull.Value));
 
             Commande.ExecuteScalar();
 
@@ -173,7 +173,7 @@ namespace BICE.DAL
             Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@stock", m.Stock));
-            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID));
+            Commande.Parameters.Add(new SqlParameter("@vehicule_id", m.Vehicule_ID ?? (object)DBNull.Value));
 
             Commande.ExecuteScalar();
 

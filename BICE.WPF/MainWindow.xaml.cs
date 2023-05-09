@@ -66,6 +66,55 @@ namespace BICE.WPF
             return categorieID;
         }
 
+        private void StockVehicule(object sender, RoutedEventArgs e)
+        {
+            TextBox immatriculation = FindName("ImmatriculationStock") as TextBox;
+            if (client.GetById5(immatriculation.Text) == null) return;
+
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            bool? result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                using (StreamReader reader = new StreamReader(openFileDialog.FileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var data = line.Split(';');
+
+                        var materielID = data[0];
+
+                        var materiel = client.GetById3(materielID);
+
+                        if (materiel != null)
+                        {
+
+                            var materielDTO = new BICE_Client.Materiel_DTO()
+                            {
+                                CodeBarre = materiel.CodeBarre,
+                                Categorie_ID = materiel.Categorie_ID,
+                                Nb_utilisation = materiel.Nb_utilisation,
+                                Nb_utilisation_max = materiel.Nb_utilisation_max,
+                                Date_controle = materiel.Date_controle,
+                                Date_peremption = materiel.Date_peremption,
+                                Date_prochain_controle = materiel.Date_prochain_controle,
+                                Stock = false,
+                                Nom = materiel.Nom
+                            };
+
+                            client.Modifier3(materielDTO);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
         private void DeleteVehicule(object sender, RoutedEventArgs e)
         {
             TextBox immatriculation = FindName("ImmatriculationSupprimer") as TextBox;
@@ -113,7 +162,6 @@ namespace BICE.WPF
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             bool? result = openFileDialog.ShowDialog();
-            var list = new List<BICE_Client.Materiel_DTO>();
 
             if (result == true)
             {
@@ -139,8 +187,6 @@ namespace BICE.WPF
                             Date_controle = null,
                         };
 
-
-                        list.Add(dto);
                         Trace.WriteLine(dto.CodeBarre);
 
                         if (client.GetById3(dto.CodeBarre) == null ) client.Ajouter3(dto);
