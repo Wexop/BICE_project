@@ -149,23 +149,23 @@ namespace BICE.DAL
             Commande.CommandText = @"UPDATE [dbo].[Materiels]
                                            set
                                            [nom]=@nom
-                                           ,[catégorie_id]=@catégorie_id,
-                                           ,[nb_utilisation]=@nb_utilisation,
-                                           ,[nb_utilisation_max]=@nb_utilisation_max,
-                                           ,[date_peremption]=@date_peremption,
-                                           ,[date_controle]=@date_controle,
-                                           ,[date_prochain_controle]=@date_prochain_controle,
-                                           ,[stock]=@stock,
+                                           ,[catégorie_id]=@catégorie_id
+                                           ,[nb_utilisation]=@nb_utilisation
+                                           ,[nb_utilisation_max]=@nb_utilisation_max
+                                           ,[date_peremption]=@date_peremption
+                                           ,[date_controle]=@date_controle
+                                           ,[date_prochain_controle]=@date_prochain_controle
+                                           ,[stock]=@stock
                                      WHERE code_barre=@code_barre";
 
             Commande.Parameters.Add(new SqlParameter("@code_barre", m.CodeBarre));
             Commande.Parameters.Add(new SqlParameter("@nom", m.Nom));
             Commande.Parameters.Add(new SqlParameter("@catégorie_id", m.Categorie_ID));
-            Commande.Parameters.Add(new SqlParameter("@nb_utilisation", m.Nb_utilisation));
-            Commande.Parameters.Add(new SqlParameter("@nb_utilisation_max", m.Nb_utilisation_max));
-            Commande.Parameters.Add(new SqlParameter("@date_peremption", m.Date_peremption));
-            Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle));
-            Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle));
+            Commande.Parameters.Add(new SqlParameter("@nb_utilisation", m.Nb_utilisation ?? (object)DBNull.Value));
+            Commande.Parameters.Add(new SqlParameter("@nb_utilisation_max", m.Nb_utilisation_max ?? (object)DBNull.Value));
+            Commande.Parameters.Add(new SqlParameter("@date_peremption", m.Date_peremption ?? (object)DBNull.Value));
+            Commande.Parameters.Add(new SqlParameter("@date_controle", m.Date_controle ?? (object)DBNull.Value));
+            Commande.Parameters.Add(new SqlParameter("@date_prochain_controle", m.Date_prochain_controle ?? (object)DBNull.Value));
             Commande.Parameters.Add(new SqlParameter("@stock", m.Stock));
 
             Commande.ExecuteScalar();

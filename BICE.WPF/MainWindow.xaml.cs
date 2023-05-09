@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Materiel_DTO = BICE.DTO.Materiel_DTO;
+using Vehicule_DTO = BICE_Client.Vehicule_DTO;
 
 namespace BICE.WPF
 {
@@ -65,7 +66,25 @@ namespace BICE.WPF
             return categorieID;
         }
 
-        private void UploadButton_Add_Click(object sender, RoutedEventArgs e)
+        private void InserVehicule(object sender, RoutedEventArgs e)
+        {
+            TextBox immatriculation = FindName("Immatriculation") as TextBox;
+            TextBox nom = FindName("Nom") as TextBox;
+            TextBox numero = FindName("Numero") as TextBox;
+
+            var vehiculeDTO = new Vehicule_DTO()
+            {
+                Immatriculation = immatriculation.Text,
+                Nom = nom.Text,
+                Numero = int.Parse(numero.Text),
+                Utilisable = true
+            };
+
+            client.Ajouter5(vehiculeDTO);
+
+        }
+
+        private void InsertMaterielData(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             bool? result = openFileDialog.ShowDialog();
@@ -99,7 +118,8 @@ namespace BICE.WPF
                         list.Add(dto);
                         Trace.WriteLine(dto.CodeBarre);
 
-                        client.Ajouter3(dto);
+                        if (client.GetById3(dto.CodeBarre) == null ) client.Ajouter3(dto);
+                        else client.Modifier3(dto);
 
                     }
 

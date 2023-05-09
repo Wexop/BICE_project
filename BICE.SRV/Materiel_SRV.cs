@@ -46,10 +46,10 @@ namespace BICE.SRV
             return materiel_DAL;
         }
 
-        Materiel_DTO IBase_SRV<Materiel_DTO>.GetById(string id)
+        Materiel_DTO? IBase_SRV<Materiel_DTO>.GetById(string id)
         {
             var materiel_DAL = depot.GetById(id);
-            if (materiel_DAL == null) throw new Exception("Pas de materiel trouvé avec le code barre : " + id);
+            if (materiel_DAL == null) return null;
             var materiel_DTO = new Materiel_DTO()
             {
                 CodeBarre = materiel_DAL.CodeBarre,

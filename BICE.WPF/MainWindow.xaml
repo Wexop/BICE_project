@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock TextWrapping="Wrap" Margin="93,84,651,326" Height="NaN" Width="NaN"><Run Language="fr-fr" Text="Matériel"/></TextBlock>
-        <Button x:Name ="UploadButton" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="87,113,0,0" VerticalAlignment="Top" Click="InsertMaterielData"/>
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Materiel Data" Margin="20,27,0,0" />
+        <Button x:Name ="UploadMaterielData" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="28,54,0,0" VerticalAlignment="Top" Click="InsertMaterielData"/>
+
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Ajouter Vehicule" Margin="14,125,6,10" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="20,153,0,-18" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Nom" Margin="20,184,0,-49" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Numero" Margin="20,220,0,-85" />
+
+        <TextBox x:Name="Immatriculation" VerticalAlignment="Top" Margin="20,166,680,0" Height="18" />
+        <TextBox x:Name="Nom" VerticalAlignment="Top" Margin="20,199,680,0" Height="18" />
+        <TextBox x:Name="Numero" VerticalAlignment="Top" Margin="20,231,680,0" Height="18" />
+        <Button x:Name ="UploadVehicule" Content="Ajouter Vehicule" HorizontalAlignment="Left" Margin="17,260,0,0" VerticalAlignment="Top" Click="InserVehicule" Width="106"/>
+
     </Grid>
 </Window>
