@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using Materiel_DTO = BICE.DTO.Materiel_DTO;
 using Vehicule_DTO = BICE_Client.Vehicule_DTO;
 
@@ -69,7 +70,7 @@ namespace BICE.WPF
         private void StockVehicule(object sender, RoutedEventArgs e)
         {
             TextBox immatriculation = FindName("ImmatriculationStock") as TextBox;
-            if (client.GetById5(immatriculation.Text) == null) return;
+            if (immatriculation == null || client.GetById5(immatriculation.Text) == null) return;
 
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             bool? result = openFileDialog.ShowDialog();
@@ -119,6 +120,9 @@ namespace BICE.WPF
         private void DeleteVehicule(object sender, RoutedEventArgs e)
         {
             TextBox immatriculation = FindName("ImmatriculationSupprimer") as TextBox;
+
+            if (immatriculation == null) return;
+
             if (client.GetById5(immatriculation.Text) != null) client.Supprimer5(immatriculation.Text);
         }
 
@@ -128,6 +132,8 @@ namespace BICE.WPF
             TextBox nom = FindName("NomModifier") as TextBox;
             TextBox numero = FindName("NumeroModifier") as TextBox;
             CheckBox utilisable = FindName("UtilisableModifier") as CheckBox;
+
+            if (immatriculation == null || nom == null || numero == null) return;
 
             var vehiculeDTO = new BICE_Client.Vehicule_DTO()
             {
@@ -146,6 +152,8 @@ namespace BICE.WPF
             TextBox immatriculation = FindName("Immatriculation") as TextBox;
             TextBox nom = FindName("Nom") as TextBox;
             TextBox numero = FindName("Numero") as TextBox;
+
+            if (immatriculation == null || nom == null || numero == null) return;
 
             var vehiculeDTO = new Vehicule_DTO()
             {
