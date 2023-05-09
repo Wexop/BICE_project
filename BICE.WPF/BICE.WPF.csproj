@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BICE.DTO\BICE.DTO.csproj" />
-    <ProjectReference Include="..\BICE.SRV\BICE.SRV.csproj" />
   </ItemGroup>
 
 </Project>

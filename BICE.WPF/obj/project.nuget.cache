@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "q7L2NjklioLDEGYeQGSAoDC6ugHAJUqGydPqqNC7vw1jRZkkTyOlFHhoWKmXrRwaFUkUp0prBXQotIO47RVfDA==",
+  "dgSpecHash": "qj07AwPlkErAsiO9eYbZHgxheRLcT7+XSBubtzPdMaRsjyF7NbeVweoXGq0IQO3Hj+UtwwTfVko3037f02y4ww==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.WPF\\BICE.WPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Matthieu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

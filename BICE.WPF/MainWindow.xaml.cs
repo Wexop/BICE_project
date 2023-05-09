@@ -1,5 +1,5 @@
 ﻿using BICE.DTO;
-using BICE.SRV;
+using BICE_Client;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Materiel_DTO = BICE.DTO.Materiel_DTO;
 
 namespace BICE.WPF
 {
@@ -29,11 +30,12 @@ namespace BICE.WPF
             InitializeComponent();
         }
 
+        Client client = new Client("https://localhost:7270", new System.Net.Http.HttpClient());
+
         private int findCategorieId(string categorieString)
         {
-            var categorieSrv = new Categorie_SRV();
 
-            var allCategorie = categorieSrv.GetAll();
+            var allCategorie = client.GetAll();
 
             int categorieID = 0;
 
@@ -47,16 +49,16 @@ namespace BICE.WPF
                     finded = true;
                 }
             }
-
+       
 
             if (!finded)
             {
-                var newCategorieDTO = new Categorie_DTO()
+                var newCategorieDTO = new BICE_Client.Categorie_DTO()
                 {
                     Nom = categorieString
                 };
 
-                categorieSrv.Ajouter(newCategorieDTO);
+                client.Ajouter(newCategorieDTO);
                 findCategorieId(categorieString);
             }
 
@@ -67,7 +69,7 @@ namespace BICE.WPF
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             bool? result = openFileDialog.ShowDialog();
-            var list = new List<Materiel_DTO>();
+            var list = new List<BICE_Client.Materiel_DTO>();
 
             if (result == true)
             {
@@ -78,26 +80,27 @@ namespace BICE.WPF
                         var line = reader.ReadLine();
                         var data = line.Split(';');
 
-                        var categorieString = data[2];
+                        var categorieID = findCategorieId(data[2]);
 
-                        var categorieID = findCategorieId(categorieString);
-
-                        var dto = new Materiel_DTO()
+                        var dto = new BICE_Client.Materiel_DTO()
                         {
-                            CodeBarre = data[0],
+                            CodeBarre = data[0].ToString(),
                             Nom = data[1],
                             Categorie_ID = categorieID,
                             Nb_utilisation = String.IsNullOrEmpty(data[3]) ? null : int.Parse(data[3]),
                             Nb_utilisation_max = String.IsNullOrEmpty(data[4]) ? null : int.Parse(data[4]),
                             Date_peremption = data[5] == "" ? null : DateTime.Parse(data[5]),
-                            Date_controle = data[6] == "" ? null : DateTime.Parse(data[6]),
                             Date_prochain_controle = data[6] == "" ? null : DateTime.Parse(data[6]),
-                            Stock = bool.Parse(data[7])
+                            Stock = true,
+                            Date_controle = null,
                         };
 
 
                         list.Add(dto);
                         Trace.WriteLine(dto.CodeBarre);
+
+                        client.Ajouter3(dto);
+
                     }
 
                 }
