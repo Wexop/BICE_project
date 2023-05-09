@@ -62,7 +62,7 @@ namespace BICE.DAL
             return liste;
         }
 
-        public override Materiel_DAL GetById(string id)
+        public override Materiel_DAL? GetById(string id)
         {
             InitialiserLaConnexionEtLaCommande();
 
