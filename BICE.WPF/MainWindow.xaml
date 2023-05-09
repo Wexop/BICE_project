@@ -8,6 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock TextWrapping="Wrap" Margin="93,84,651,326" Height="NaN" Width="NaN"><Run Language="fr-fr" Text="Matériel"/></TextBlock>
-        <Button x:Name ="UploadButton" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="87,113,0,0" VerticalAlignment="Top" Click="UploadButton_Add_Click"/>
+        <Button x:Name ="UploadButton" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="87,113,0,0" VerticalAlignment="Top" Click="InsertMaterielData"/>
     </Grid>
 </Window>
