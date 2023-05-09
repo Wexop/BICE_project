@@ -7,40 +7,50 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Materiel Data" Margin="20,27,0,0" />
-        <Button x:Name ="UploadMaterielData" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="28,54,0,0" VerticalAlignment="Top" Click="InsertMaterielData"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="92*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Materiel Data" Margin="20,27,0,0" Grid.RowSpan="2" />
+        <Button x:Name ="UploadMaterielData" Content="Ajouter CSV" HorizontalAlignment="Left" Margin="28,54,0,0" VerticalAlignment="Top" Click="InsertMaterielData" Height="20" Width="68"/>
 
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Ajouter Vehicule" Margin="226,15,-206,120" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="232,43,-212,92" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Nom" Margin="232,74,-212,61" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Numero" Margin="232,110,-212,25" />
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Ajouter Vehicule" Margin="226,15,-206,120" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="232,43,-212,92" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Nom" Margin="232,74,-212,61" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Numero" Margin="232,110,-212,25" Grid.RowSpan="2" />
 
         <TextBox x:Name="Immatriculation" VerticalAlignment="Top" Margin="232,56,468,0" Height="18" />
         <TextBox x:Name="Nom" VerticalAlignment="Top" Margin="232,89,468,0" Height="18" />
         <TextBox x:Name="Numero" VerticalAlignment="Top" Margin="232,121,468,0" Height="18" />
-        <Button x:Name ="UploadVehicule" Content="Ajouter Vehicule" HorizontalAlignment="Left" Margin="229,150,0,0" VerticalAlignment="Top" Click="InsertVehicule" Width="106"/>
+        <Button x:Name ="UploadVehicule" Content="Ajouter Vehicule" HorizontalAlignment="Left" Margin="229,150,0,0" VerticalAlignment="Top" Click="InsertVehicule" Width="106" Height="20"/>
 
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Modifier Vehicule" Margin="391,15,-371,120" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="397,43,-377,92" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Nom" Margin="397,74,-377,61" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Numero" Margin="397,110,-377,25" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Utilisable" Margin="397,144,-377,-9"/>
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Modifier Vehicule" Margin="391,15,-371,120" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="397,43,-377,92" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Nom" Margin="397,74,-377,61" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Numero" Margin="397,110,-377,25" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Utilisable" Margin="397,144,-377,-9" Grid.RowSpan="2"/>
         <TextBox x:Name="ImmatriculationModifier" VerticalAlignment="Top" Margin="397,56,303,0" Height="18" />
         <TextBox x:Name="NomModifier" VerticalAlignment="Top" Margin="397,89,303,0" Height="18" />
         <TextBox x:Name="NumeroModifier" VerticalAlignment="Top" Margin="397,121,303,0" Height="18" />
         <CheckBox x:Name="UtilisableModifier" VerticalAlignment="Top" Margin="397,156,303,0" Height="18" />
-        <Button x:Name ="UploadUpdateVehicule" Content="Modifier Vehicule" HorizontalAlignment="Left" Margin="397,183,0,0" VerticalAlignment="Top" Click="UpdateVehicule" Width="106"/>
+        <Button x:Name ="UploadUpdateVehicule" Content="Modifier Vehicule" HorizontalAlignment="Left" Margin="397,183,0,0" VerticalAlignment="Top" Click="UpdateVehicule" Width="106" Height="20"/>
 
 
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Supprimer Vehicule" Margin="562,15,-542,119" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="562,43,-542,92" />
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Supprimer Vehicule" Margin="562,15,-542,119" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="562,43,-542,92" Grid.RowSpan="2" />
         <TextBox x:Name="ImmatriculationSupprimer" VerticalAlignment="Top" Margin="562,56,138,0" Height="18" />
-        <Button x:Name ="UploadDeleteVehicule" Content="Supprimer Vehicule" HorizontalAlignment="Left" Margin="563,92,0,0" VerticalAlignment="Top" Click="DeleteVehicule" Width="106"/>
+        <Button x:Name ="UploadDeleteVehicule" Content="Supprimer Vehicule" HorizontalAlignment="Left" Margin="563,92,0,0" VerticalAlignment="Top" Click="DeleteVehicule" Width="106" Height="20"/>
 
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Stock Vehicule" Margin="9,188,11,-54" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="17,217,3,-82" />
-        <TextBox x:Name="ImmatriculationStock" VerticalAlignment="Top" Margin="17,233,683,0" Height="18" />
-        <Button x:Name ="UploadStockVehicule" Content="Ajouter au stock" HorizontalAlignment="Left" Margin="9,279,0,0" VerticalAlignment="Top" Click="StockVehicule" Width="106"/>
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Stock Vehicule" Margin="9,188,11,-54" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="17,217,3,-82" Grid.RowSpan="2" />
+        <TextBox x:Name="ImmatriculationStock" VerticalAlignment="Top" Margin="17,233,683,0" Height="18" Grid.RowSpan="2" />
+        <Button x:Name ="UploadStockVehicule" Content="Ajouter au stock" HorizontalAlignment="Left" Margin="9,29,0,0" VerticalAlignment="Top" Click="StockVehicule" Width="106" Grid.Row="1" Height="20"/>
+
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Retour Intervention" Margin="196,243,-176,-109" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Fichier 1 : Utilisé, fichier 2 : pas utilisé" Margin="196,64,-176,-179" />
+        <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="196,18,-176,-133" />
+        <Button x:Name ="UploadRetourIntervention" Content="Ajouter les CSV" HorizontalAlignment="Left" Margin="196,77,0,0" VerticalAlignment="Top" Click="RetourIntervention" Width="106" Grid.Row="1" Height="20"/>
+        <TextBox x:Name="ImmatriculationInterventionRetour" VerticalAlignment="Top" Margin="199,39,501,0" Height="18" Grid.Row="1" />
 
 
     </Grid>

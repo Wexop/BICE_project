@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Materiel_DTO = BICE.DTO.Materiel_DTO;
+using String = System.String;
 using Vehicule_DTO = BICE_Client.Vehicule_DTO;
 
 namespace BICE.WPF
@@ -65,6 +66,129 @@ namespace BICE.WPF
             }
 
             return categorieID;
+        }
+
+        private void RetourIntervention(object sender, RoutedEventArgs e)
+        {
+
+            TextBox immatriculation = FindName("ImmatriculationInterventionRetour") as TextBox;
+            if (immatriculation == null || client.GetById5(immatriculation.Text) == null) return;
+
+            Microsoft.Win32.OpenFileDialog FileMaterielUtiliser = new Microsoft.Win32.OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog FileMaterielNonUtiliser = new Microsoft.Win32.OpenFileDialog();
+            bool? result1 = FileMaterielUtiliser.ShowDialog();
+            bool? result2 = FileMaterielNonUtiliser.ShowDialog();
+
+            List<BICE_Client.Materiel_DTO> listMaterielUtiliser = new List<BICE_Client.Materiel_DTO>();
+            List<BICE_Client.Materiel_DTO> listMaterielNonUtiliser = new List<BICE_Client.Materiel_DTO>();
+
+            if (result1 == true)
+            {
+                using (StreamReader reader = new StreamReader(FileMaterielUtiliser.FileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var data = line.Split(';');
+
+                        var materielID = data[0];
+
+                        var materiel = client.GetById3(materielID);
+
+                        if (materiel != null)
+                        {
+
+                            var materielDTO = new BICE_Client.Materiel_DTO()
+                            {
+                                CodeBarre = materiel.CodeBarre,
+                                Categorie_ID = materiel.Categorie_ID,
+                                Nb_utilisation = materiel.Nb_utilisation,
+                                Nb_utilisation_max = materiel.Nb_utilisation_max,
+                                Date_controle = materiel.Date_controle,
+                                Date_peremption = materiel.Date_peremption,
+                                Date_prochain_controle = materiel.Date_prochain_controle,
+                                Stock = materiel.Stock,
+                                Nom = materiel.Nom,
+                                Vehicule_ID = immatriculation.Text
+                            };
+
+                            listMaterielUtiliser.Add(materielDTO);
+                            client.ModifierUtiliser(materielDTO);
+
+                        }
+
+                    }
+                }
+            }
+
+            if (result2 == true)
+            {
+                using (StreamReader reader = new StreamReader(FileMaterielNonUtiliser.FileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var data = line.Split(';');
+
+                        var materielID = data[0];
+
+                        var materiel = client.GetById3(materielID);
+
+                        if (materiel != null)
+                        {
+
+                            var materielDTO = new BICE_Client.Materiel_DTO()
+                            {
+                                CodeBarre = materiel.CodeBarre,
+                                Categorie_ID = materiel.Categorie_ID,
+                                Nb_utilisation = materiel.Nb_utilisation,
+                                Nb_utilisation_max = materiel.Nb_utilisation_max,
+                                Date_controle = materiel.Date_controle,
+                                Date_peremption = materiel.Date_peremption,
+                                Date_prochain_controle = materiel.Date_prochain_controle,
+                                Stock = materiel.Stock,
+                                Nom = materiel.Nom,
+                                Vehicule_ID = immatriculation.Text
+                            };
+
+                            listMaterielNonUtiliser.Add(materielDTO);
+                            client.Modifier3(materielDTO);
+
+                        }
+
+                    }
+                }
+            }
+
+            var materielInVehicule = new List<BICE_Client.Materiel_DTO>();
+
+            foreach (var materiel in client.GetAll3())
+            {
+                if (materiel != null)
+                {
+                    if (materiel.Vehicule_ID != null && materiel.Vehicule_ID == immatriculation.Text) materielInVehicule.Add(materiel);
+                }
+            }
+
+            var everyMaterielInFiles = new List<Materiel_DTO>();
+            everyMaterielInFiles.AddRange((IEnumerable<Materiel_DTO>)listMaterielUtiliser);
+            everyMaterielInFiles.AddRange((IEnumerable<Materiel_DTO>)listMaterielNonUtiliser);
+
+            var materielPerdu = new List<Materiel_DTO>();
+
+            foreach (var materiel in everyMaterielInFiles)
+            {
+                var find = false;
+
+                foreach (var m in materielInVehicule)
+                {
+                    if (m.CodeBarre == materiel.CodeBarre) find = true;
+                }
+
+                if (!find) materielPerdu.Add(materiel);
+
+            };
+
         }
 
         private void StockVehicule(object sender, RoutedEventArgs e)
