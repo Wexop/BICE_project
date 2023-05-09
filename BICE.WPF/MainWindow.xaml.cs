@@ -66,7 +66,32 @@ namespace BICE.WPF
             return categorieID;
         }
 
-        private void InserVehicule(object sender, RoutedEventArgs e)
+        private void DeleteVehicule(object sender, RoutedEventArgs e)
+        {
+            TextBox immatriculation = FindName("ImmatriculationSupprimer") as TextBox;
+            if (client.GetById5(immatriculation.Text) != null) client.Supprimer5(immatriculation.Text);
+        }
+
+        private void UpdateVehicule(object sender, RoutedEventArgs e)
+        {
+            TextBox immatriculation = FindName("ImmatriculationModifier") as TextBox;
+            TextBox nom = FindName("NomModifier") as TextBox;
+            TextBox numero = FindName("NumeroModifier") as TextBox;
+            CheckBox utilisable = FindName("UtilisableModifier") as CheckBox;
+
+            var vehiculeDTO = new BICE_Client.Vehicule_DTO()
+            {
+                Immatriculation = immatriculation.Text,
+                Nom = nom.Text,
+                Numero = int.Parse(numero.Text),
+                Utilisable = utilisable.IsChecked?? true
+            };
+
+            client.Modifier5(vehiculeDTO);
+
+        }
+
+        private void InsertVehicule(object sender, RoutedEventArgs e)
         {
             TextBox immatriculation = FindName("Immatriculation") as TextBox;
             TextBox nom = FindName("Nom") as TextBox;

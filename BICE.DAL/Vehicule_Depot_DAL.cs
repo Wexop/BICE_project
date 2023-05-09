@@ -122,8 +122,8 @@ namespace BICE.DAL
             Commande.CommandText = @"UPDATE [dbo].[Vehicules]
                                            set
                                            [nom]=@nom
-                                           ,[numero]=@numero,
-                                           ,[utilisable]=@utilisable,
+                                           ,[numero]=@numero
+                                           ,[utilisable]=@utilisable
                                      WHERE immatriculation=@immatriculation";
 
             Commande.Parameters.Add(new SqlParameter("@immatriculation", v.Immatriculation));
