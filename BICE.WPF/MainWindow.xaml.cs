@@ -71,11 +71,75 @@ namespace BICE.WPF
 
         private void ExportUnstockedMateriel(object sender, RoutedEventArgs e)
         {
+            TextBox directory = FindName("DirectoryPath") as TextBox;
+            var streamWriter = new StreamWriter(directory.Text + "/materielPasStocker.csv");
 
+            var materielList = (List<BICE_Client.Materiel_DTO>)client.GetAll3();
+
+            if (materielList == null) return;
+
+            string newLine = Environment.NewLine;
+
+            //this acts as datarow
+            foreach (var item in materielList)
+            {
+
+                if (!item.Stock)
+                {
+                    //this acts as datacolumn
+                    var row = string.Join(";", new List<string>()
+                    {
+                        item.CodeBarre,
+                        item.Nom,
+                        item.Categorie_ID.ToString(),
+                        item.Nb_utilisation?.ToString()?? "",
+                        item.Nb_utilisation_max?.ToString()?? "",
+                        item.Date_peremption?.ToString()?? "",
+                        item.Date_prochain_controle?.ToString()?? "",
+                        item.Vehicule_ID?.ToString()?? ""
+                    });
+
+                    if (row[0].ToString() != "" && row[1].ToString() != "" && row[2].ToString() != "") streamWriter.Write(row + newLine);
+                };
+            };
+
+            streamWriter.Close();
         }       
         private void ExportControleMateriel(object sender, RoutedEventArgs e)
         {
+            TextBox directory = FindName("DirectoryPath") as TextBox;
+            var streamWriter = new StreamWriter(directory.Text + "/materielControle.csv");
 
+            var materielList = (List<BICE_Client.Materiel_DTO>)client.GetAll3();
+
+            if (materielList == null) return;
+
+            string newLine = Environment.NewLine;
+
+            //this acts as datarow
+            foreach (var item in materielList)
+            {
+
+                if (item.Date_prochain_controle <= DateTime.Now)
+                {
+                    //this acts as datacolumn
+                    var row = string.Join(";", new List<string>()
+                    {
+                        item.CodeBarre,
+                        item.Nom,
+                        item.Categorie_ID.ToString(),
+                        item.Nb_utilisation?.ToString()?? "",
+                        item.Nb_utilisation_max?.ToString()?? "",
+                        item.Date_peremption?.ToString()?? "",
+                        item.Date_prochain_controle?.ToString()?? "",
+                        item.Vehicule_ID?.ToString()?? ""
+                    });
+
+                    if (row[0].ToString() != "" && row[1].ToString() != "" && row[2].ToString() != "") streamWriter.Write(row + newLine);
+                };
+            };
+
+            streamWriter.Close();
         }
 
 
