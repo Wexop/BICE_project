@@ -79,8 +79,10 @@ namespace BICE.WPF
             bool? result1 = FileMaterielUtiliser.ShowDialog();
             bool? result2 = FileMaterielNonUtiliser.ShowDialog();
 
-            List<BICE_Client.Materiel_DTO> listMaterielUtiliser = new List<BICE_Client.Materiel_DTO>();
-            List<BICE_Client.Materiel_DTO> listMaterielNonUtiliser = new List<BICE_Client.Materiel_DTO>();
+            List<BICE_Client.Materiel_DTO> listMaterielUtiliser = new List<BICE_Client.Materiel_DTO>() { };
+            List<BICE_Client.Materiel_DTO> listMaterielNonUtiliser = new List<BICE_Client.Materiel_DTO>() { };
+
+            // materiel utilisé : utilisation += 1 && restockage en fonction des utilisations max + date peremption
 
             if (result1 == true)
             {
@@ -121,6 +123,8 @@ namespace BICE.WPF
                 }
             }
 
+            // materiel non utilisé : restocké
+
             if (result2 == true)
             {
                 using (StreamReader reader = new StreamReader(FileMaterielNonUtiliser.FileName))
@@ -160,7 +164,9 @@ namespace BICE.WPF
                 }
             }
 
-            var materielInVehicule = new List<BICE_Client.Materiel_DTO>();
+            // materiel perdu ?
+
+            var materielInVehicule = new List<BICE_Client.Materiel_DTO>() { };
 
             foreach (var materiel in client.GetAll3())
             {
@@ -170,11 +176,11 @@ namespace BICE.WPF
                 }
             }
 
-            var everyMaterielInFiles = new List<Materiel_DTO>();
-            everyMaterielInFiles.AddRange((IEnumerable<Materiel_DTO>)listMaterielUtiliser);
-            everyMaterielInFiles.AddRange((IEnumerable<Materiel_DTO>)listMaterielNonUtiliser);
+            var everyMaterielInFiles = new List<BICE_Client.Materiel_DTO>() { };
+            everyMaterielInFiles.AddRange(listMaterielUtiliser);
+            everyMaterielInFiles.AddRange(listMaterielNonUtiliser);
 
-            var materielPerdu = new List<Materiel_DTO>();
+            var materielPerdu = new List<BICE_Client.Materiel_DTO>();
 
             foreach (var materiel in everyMaterielInFiles)
             {
@@ -188,6 +194,23 @@ namespace BICE.WPF
                 if (!find) materielPerdu.Add(materiel);
 
             };
+
+            // on destock les materiels perdus trouvé
+
+            foreach (var materiel in materielPerdu)
+            {
+                materiel.Stock = false;
+                client.Modifier3(materiel);
+            }
+
+            // ajout intervention
+
+            var interventionDTO = new BICE_Client.Intervention_DTO()
+            {
+                Date_intervention= DateTime.Now,
+            };
+
+            client.Ajouter2(interventionDTO);
 
         }
 
