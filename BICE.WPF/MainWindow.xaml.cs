@@ -69,6 +69,15 @@ namespace BICE.WPF
             return categorieID;
         }
 
+        private void DestockMateriel(object sender, RoutedEventArgs e)
+        {
+            TextBox codeBarre = FindName("MaterielDestocker") as TextBox;
+
+            var materielDTO = client.GetById3(codeBarre.Text);
+            materielDTO.Stock = false;
+            client.Modifier3(materielDTO);
+        }
+
         private void ExportUnstockedMateriel(object sender, RoutedEventArgs e)
         {
             TextBox directory = FindName("DirectoryPath") as TextBox;
@@ -141,8 +150,6 @@ namespace BICE.WPF
 
             streamWriter.Close();
         }
-
-
 
         private void ExportMaterielList(object sender, RoutedEventArgs e)
         {
