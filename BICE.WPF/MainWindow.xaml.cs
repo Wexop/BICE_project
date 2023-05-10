@@ -301,13 +301,13 @@ namespace BICE.WPF
             everyMaterielInFiles.AddRange(listMaterielUtiliser);
             everyMaterielInFiles.AddRange(listMaterielNonUtiliser);
 
-            var materielPerdu = new List<BICE_Client.Materiel_DTO>();
+            var materielPerdu = new List<BICE_Client.Materiel_DTO>() { };
 
-            foreach (var materiel in everyMaterielInFiles)
+            foreach (var materiel in materielInVehicule)
             {
                 var find = false;
 
-                foreach (var m in materielInVehicule)
+                foreach (var m in everyMaterielInFiles)
                 {
                     if (m.CodeBarre == materiel.CodeBarre) find = true;
                 }
@@ -318,10 +318,14 @@ namespace BICE.WPF
 
             // on destock les materiels perdus trouvé
 
-            foreach (var materiel in materielPerdu)
+            Trace.WriteLine("tab : " + materielInVehicule.Count());
+            Trace.WriteLine("tab : " + everyMaterielInFiles.Count());
+            Trace.WriteLine("tab : " + materielPerdu.Count());
+
+            foreach (var mat in materielPerdu)
             {
-                materiel.Stock = false;
-                client.Modifier3(materiel);
+                mat.Stock = false;
+                client.Modifier3(mat);
             }
 
             // ajout intervention
