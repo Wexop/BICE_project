@@ -53,7 +53,7 @@ namespace BICE.SRV
             return materiel_DAL;
         }
 
-        Materiel_DTO? IBase_SRV<Materiel_DTO>.GetById(string id)
+        public Materiel_DTO? GetById(string id)
         {
             var materiel_DAL = depot.GetById(id);
             if (materiel_DAL == null) return null;
@@ -74,7 +74,7 @@ namespace BICE.SRV
             return materiel_DTO;
         }
 
-        IEnumerable<Materiel_DTO> IBase_SRV<Materiel_DTO>.GetAll()
+        public IEnumerable<Materiel_DTO> GetAll()
         {
             var materiel_DAL_List = depot.GetAll();
 
