@@ -39,6 +39,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -103,6 +109,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -163,6 +173,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -228,6 +244,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

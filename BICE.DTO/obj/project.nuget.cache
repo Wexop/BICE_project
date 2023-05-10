@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GPaJaZnSKYLuD3W8RiT+jzNQnkB54p2ClACLGknzIFCdAvFOxvOdstJaOdLCcs0EBmXIslRClJfj5afvB8M/nQ==",
+  "dgSpecHash": "1zbE+Sh2LF0bz1IsPXRGS3HOvPD351HB+QpJWchBamzZcbaWIoGXQCIFdhF4N81qauH41IUIUgV3xU1Rvfpuiw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matthieu\\OneDrive\\Desktop\\COURS\\SN2\\CS projet transversal\\BICE_project\\BICE.DTO\\BICE.DTO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Matthieu\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Matthieu\\.nuget\\packages\\moq\\4.18.4\\moq.4.18.4.nupkg.sha512",
+    "C:\\Users\\Matthieu\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,7 +1,7 @@
 ﻿using BICE.BLL;
 using BICE.DAL;
 using BICE.DTO;
-using Geometrie.DAL;
+using BICE.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

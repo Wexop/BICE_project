@@ -1,0 +1,6 @@
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\bin\Debug\net7.0\CoverletSourceRootsMapping
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\obj\Debug\net7.0\BICE.SRV.TESTS.csproj.AssemblyReference.cache
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\obj\Debug\net7.0\BICE.SRV.TESTS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\obj\Debug\net7.0\BICE.SRV.TESTS.AssemblyInfoInputs.cache
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\obj\Debug\net7.0\BICE.SRV.TESTS.AssemblyInfo.cs
+C:\Users\Matthieu\OneDrive\Desktop\COURS\SN2\CS projet transversal\BICE_project\BICE.SRV.TESTS\obj\Debug\net7.0\BICE.SRV.TESTS.csproj.CoreCompileInputs.cache
