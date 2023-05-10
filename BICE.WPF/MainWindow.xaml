@@ -52,6 +52,13 @@
         <Button x:Name ="UploadRetourIntervention" Content="Ajouter les CSV" HorizontalAlignment="Left" Margin="196,77,0,0" VerticalAlignment="Top" Click="RetourIntervention" Width="106" Grid.Row="1" Height="20"/>
         <TextBox x:Name="ImmatriculationInterventionRetour" VerticalAlignment="Top" Margin="199,39,501,0" Height="18" Grid.Row="1" />
 
+        <TextBlock FontSize="15" FontWeight="Regular" Text="Export" Margin="531,243,-511,-109" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Path du dossier" Margin="513,28,-493,-143" />
+        <TextBox x:Name="DirectoryPath" VerticalAlignment="Top" Margin="513,42,187,0" Height="18" Grid.Row="1" />
+        <Button x:Name ="ExportMateriel" Content="Materiel" HorizontalAlignment="Left" Margin="506,81,0,0" VerticalAlignment="Top" Click="ExportMaterielList" Width="106" Grid.Row="1" Height="20"/>
+        <Button x:Name ="ExportMaterielUnstocked" Content="Materiel à jeter" HorizontalAlignment="Left" Margin="506,113,0,0" VerticalAlignment="Top" Click="ExportUnstockedMateriel" Width="106" Grid.Row="1" Height="20"/>
+        <Button x:Name ="ExportMaterielControle" Content="Materiel à contrôler" HorizontalAlignment="Left" Margin="506,148,0,0" VerticalAlignment="Top" Click="ExportControleMateriel" Width="106" Grid.Row="1" Height="20"/>
+
 
     </Grid>
 </Window>
