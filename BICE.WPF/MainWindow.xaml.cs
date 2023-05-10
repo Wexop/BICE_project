@@ -400,8 +400,8 @@ namespace BICE.WPF
             if (vehiculeDTO != null)
             {
                 vehiculeDTO.Utilisable = false;
-                client.Modifier(vehiculeDTO.Immatriculation);
-            }
+                client.Modifier5(vehiculeDTO);
+            };
         }
 
         private void UpdateVehicule(object sender, RoutedEventArgs e)
