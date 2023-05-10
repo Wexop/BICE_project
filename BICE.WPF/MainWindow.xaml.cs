@@ -157,6 +157,7 @@ namespace BICE.WPF
         {
 
             TextBox directory = FindName("DirectoryPath") as TextBox;
+            if (directory.Text == "") return;
             var streamWriter = new StreamWriter(directory.Text + "/materielList.csv");
 
             var materielList = (List<BICE_Client.Materiel_DTO>) client.GetAll3();
