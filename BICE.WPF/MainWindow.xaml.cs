@@ -394,8 +394,14 @@ namespace BICE.WPF
             TextBox immatriculation = FindName("ImmatriculationSupprimer") as TextBox;
 
             if (immatriculation == null) return;
+            var vehiculeDTO = client.GetById5(immatriculation.Text);
 
-            if (client.GetById5(immatriculation.Text) != null) client.Supprimer5(immatriculation.Text);
+
+            if (vehiculeDTO != null)
+            {
+                vehiculeDTO.Utilisable = false;
+                client.Modifier(vehiculeDTO.Immatriculation);
+            }
         }
 
         private void UpdateVehicule(object sender, RoutedEventArgs e)
