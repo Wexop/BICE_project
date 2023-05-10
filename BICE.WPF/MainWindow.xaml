@@ -41,10 +41,10 @@
         <TextBox x:Name="ImmatriculationSupprimer" VerticalAlignment="Top" Margin="562,56,138,0" Height="18" />
         <Button x:Name ="UploadDeleteVehicule" Content="Supprimer Vehicule" HorizontalAlignment="Left" Margin="563,92,0,0" VerticalAlignment="Top" Click="DeleteVehicule" Width="106" Height="20"/>
 
-        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Stock Vehicule" Margin="9,188,11,-54" Grid.RowSpan="2" />
-        <TextBlock Grid.Row="0" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="17,217,3,-82" Grid.RowSpan="2" />
-        <TextBox x:Name="ImmatriculationStock" VerticalAlignment="Top" Margin="17,233,683,0" Height="18" Grid.RowSpan="2" />
-        <Button x:Name ="UploadStockVehicule" Content="Ajouter au stock" HorizontalAlignment="Left" Margin="9,29,0,0" VerticalAlignment="Top" Click="StockVehicule" Width="106" Grid.Row="1" Height="20"/>
+        <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Stock Vehicule" Margin="11,246,9,-112" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Immatriculation" Margin="18,16,2,-131" />
+        <TextBox x:Name="ImmatriculationStock" VerticalAlignment="Top" Margin="18,32,682,0" Height="18" Grid.Row="1" />
+        <Button x:Name ="UploadStockVehicule" Content="Ajouter au stock" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Click="StockVehicule" Width="106" Grid.Row="1" Height="20"/>
 
         <TextBlock Grid.Row="0" FontSize="15" FontWeight="Regular" Text="Retour Intervention" Margin="196,243,-176,-109" Grid.RowSpan="2" />
         <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Fichier 1 : Utilisé, fichier 2 : pas utilisé" Margin="196,64,-176,-179" />
@@ -58,7 +58,7 @@
         <Button x:Name ="ExportMateriel" Content="Materiel" HorizontalAlignment="Left" Margin="410,87,0,0" VerticalAlignment="Top" Click="ExportMaterielList" Width="106" Grid.Row="1" Height="20"/>
         <Button x:Name ="ExportMaterielUnstocked" Content="Materiel à jeter" HorizontalAlignment="Left" Margin="410,119,0,0" VerticalAlignment="Top" Click="ExportUnstockedMateriel" Width="106" Grid.Row="1" Height="20"/>
         <Button x:Name ="ExportMaterielControle" Content="Materiel à contrôler" HorizontalAlignment="Left" Margin="410,154,0,0" VerticalAlignment="Top" Click="ExportControleMateriel" Width="106" Grid.Row="1" Height="20"/>
-       
+
         <TextBlock Grid.Row="1" FontSize="15" FontWeight="Regular" Text="Jeter Materiel" Margin="615,1,-595,-117" />
         <TextBlock Grid.Row="1" FontSize="10" FontWeight="Regular" Text="Code Barre" Margin="615,29,-595,-144" />
         <TextBox x:Name="MaterielDestocker" VerticalAlignment="Top" Margin="615,42,85,0" Height="18" Grid.Row="1" />
