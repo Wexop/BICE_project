@@ -73,6 +73,8 @@ namespace BICE.WPF
         {
             TextBox codeBarre = FindName("MaterielDestocker") as TextBox;
 
+            if (codeBarre == null || client.GetById3(codeBarre.Text) == null) return;
+
             var materielDTO = client.GetById3(codeBarre.Text);
             materielDTO.Stock = false;
             client.Modifier3(materielDTO);
