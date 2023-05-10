@@ -341,6 +341,7 @@ namespace BICE.WPF
                             Date_prochain_controle = data[6] == "" ? null : DateTime.Parse(data[6]),
                             Stock = true,
                             Date_controle = null,
+                            Vehicule_ID = data.Length >= 8 ? String.IsNullOrEmpty(data[7]) ? null : data[7] : null
                         };
 
                         Trace.WriteLine(dto.CodeBarre);
